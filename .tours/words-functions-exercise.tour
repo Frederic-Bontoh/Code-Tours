@@ -4,18 +4,95 @@
   "steps": [
     {
       "title": "Introduction",
-      "description": "This tour will cover the various features of the C++ Review Exercise program. In this program, the task was to accept a sentence from the user and then perform 3 different analysis tasks on the sentence. The tasks were to determine how many words were in the sentence, what the longest word in the sentence was, and which word had the most vowels."
+      "description": "This tour will cover the various features of the C++ Review Exercise program. In this program, the task was to accept a sentence from the user and then perform 3 different analysis tasks on the sentence. The tasks were to determine how many words were in the sentence, what the longest word in the sentence was, and which word had the most vowels.\n\nAs a reminder, I have included links to relevant reference information at some of the steps, so if you have questions on details you can start there!"
     },
     {
       "file": "Words/main.cpp",
-      "description": "We can start with the main.cpp file. In this file we have our main function. As discussed in previous tours, every C++ program **has** to have a main function. Our main function here is working to take in the user input, then call the various other functions we have defined to perform the proper analysis on them. We only have one include directive on the main.cpp file, including the words.h header file.",
+      "description": "We can start with the main.cpp file. In this file we have our main function. As discussed in previous tours, every C++ program **has** to have a [main function](https://www.learncpp.com/cpp-tutorial/statements-and-the-structure-of-a-program/). Our main function here is working to take in the user input, then call the various other functions we have defined to perform the proper analysis on them. We only have one include directive on the main.cpp file, including the words.h header file.",
       "line": 1,
       "title": "The Main file"
     },
     {
       "file": "Words/words.h",
       "description": "In the words.h file, the first thing we encounter are two statements that make up [Header Guards](https://www.learncpp.com/cpp-tutorial/header-guards/#:~:text=resolve%20this%20issue%3F-,Header%20guards,-The%20good%20news). In C++, we can only define a function one time. Trying to define a function a second time with the same name will cause the compiler to show an error. This can cause issues if we have multiple files that use the same headers as dependencies. To remedy this, we introduce a Header Guard. The `#ifndef WORDS_H_` checks if there has been a definition for the symbol `WORDS_H_`. If there hasn't been a definition, it will then define it, using `#define WORDS_H_`. This will prevent this header file from being loaded more than once, as it won't be loaded again after being defined.",
-      "line": 1
+      "selection": {
+        "start": {
+          "line": 1,
+          "character": 1
+        },
+        "end": {
+          "line": 2,
+          "character": 17
+        }
+      },
+      "line": 2,
+      "title": "Header Guards"
+    },
+    {
+      "file": "Words/words.h",
+      "selection": {
+        "start": {
+          "line": 4,
+          "character": 1
+        },
+        "end": {
+          "line": 6,
+          "character": 18
+        }
+      },
+      "description": "Inside of our words.h file, we have the `#include`s that we need for both the words.cpp and main.cpp file. This includes the `<vector>` library for our dynamic container to store sentences, our `<iostream>` library for reading and writing to the input/output streams, and the `<string>` library for handling the words in the sentences.",
+      "title": "Include Directives"
+    },
+    {
+      "file": "Words/words.h",
+      "description": "Inside the words.h file we have our Function **Declarations**. We **declare** our functions in the header files, then **define** the functions in the .cpp files. This allows us to provide an easy place to look for people who are using the library, so they can find what the function name is, what arguements it takes, and what it returns. Other users of your library will often not need to know the specifics of how the function works, only what the end result will be.\n\nC++ functions are declared in the `return-type name(argument-type)` layout. The functions in this program are showing that we have two functions that return `int` or `integer` values, and one function that returns a `std::string` value. The first two functions take `std::vector<std::string>` type variables, and the third function takes a `std::string` variable. You can also note that the variables are using the `const` keyword. That indicates that these functions are not modifying the variables that are being passed in to the function. It is also important to note the `&` at the end of the variable type in each of the function arguments. This indicates that the variables are being passed in by [reference](https://www.learncpp.com/cpp-tutorial/pass-by-lvalue-reference/). The linked reference has much more information on passing by reference. It is important to know that when you pass by reference you are providing the function with a reference to the memory address where the variable value is stored. This allows the variable to be modified by the function and then retain that modification outside of the function scope. While the variables in these functions are `const`, meaning they can't change, it is more efficient to pass variables by reference than by value, as passing by value requires creating separate memory space for the variable in the function.",
+      "selection": {
+        "start": {
+          "line": 8,
+          "character": 1
+        },
+        "end": {
+          "line": 10,
+          "character": 37
+        }
+      },
+      "title": "Function Declarations"
+    },
+    {
+      "file": "Words/words.h",
+      "description": "The last thing to note in the words.h file is the `#endif`. This is closing the `#ifndef` that we started at the top of the words.h file, and is required for the header guards to work correctly.",
+      "line": 12,
+      "title": "#endif"
+    },
+    {
+      "file": "Words/words.cpp",
+      "description": "In our next stop we are at the words.cpp file, with our `countWords` function. As you can see here, we've used largely the same function signature, but we've added a name to the function argument, `sentence`. This function is relatively simple, the [`vector`](https://en.cppreference.com/w/cpp/container/vector) class has a function to get the size of the vector, which is the number of elements that are being stored in the vector. The function is `.size()`, which you can see on line 4: `sentence.size()`.",
+      "title": "countWords",
+      "selection": {
+        "start": {
+          "line": 3,
+          "character": 1
+        },
+        "end": {
+          "line": 5,
+          "character": 2
+        }
+      }
+    },
+    {
+      "file": "Words/words.cpp",
+      "description": "The next function is our `findLongestWord` function. This is a little more complicated, and worth spending some time explaining more thoroughly. ",
+      "line": 7
+    },
+    {
+      "file": "Words/words.cpp",
+      "description": "We start the function by [declaring and initializing two variables](https://www.learncpp.com/cpp-tutorial/variable-assignment-and-initialization/), `longest_length` and `longest_word`. For this we are using [List Initialization](<https://www.learncpp.com/cpp-tutorial/variable-assignment-and-initialization/#:~:text=via%20static_cast).-,List%2Dinitialization,-The%20modern%20way>), which is the preferred way to initialize variables.\n\nAs a quick breakdown, List Initialization is in the following format: `type name{value};`. Copy initialization is the previous preferred method for initializing a variable, which used the format: `type name = value;`. In the modern versions of C++ it is recommended to use List initialization. When you assign a value to a variable, after initialization, you assign it using the following format: `name = new_value;`. \n\nAs can be seen here, we are using the `std::size_t` type for `longest_length`, as the values returned by the `string` `length()` function are in the type `size_t`. For `longest_word`, we are defining it as a `std::string`, initializing it as an empty string.",
+      "line": 8
+    },
+    {
+      "file": "Words/words.cpp",
+      "description": "The next line in the function is a [`range for` loop](https://www.learncpp.com/cpp-tutorial/range-based-for-loops-for-each/). This for loop using the format: `for(element_declaration : array_object)`. This also brings up the `auto` keyword. This keyword is used to infer the type of the variable, based on what it is initialized with. In this case, we are iterating over the `sentence` variable, which is a vector of strings. So each `word` instance will be of type `std::string`, which `auto` is able to figure out on its own. It is recommended to use `auto` when possible, so anytime it is obvious what the inferred type is going to be, and to manually define the type in cases where it is ambiguous. This applies to our initialization of `longest_word`. Since it was initialized as `{\"\"}`, the `auto` keyword would take that to mean a `char array`, instead of a `std::string`. This would then be incompatible when working with the `word` variable later.",
+      "line": 10
     }
   ]
 }
