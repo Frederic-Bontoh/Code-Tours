@@ -1,0 +1,37 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/cpp
+{
+	"name": "C++",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "cmake -S . -B build",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.cpptools",
+				"ms-vscode.cpptools-extension-pack",
+				"ms-vscode.cpptools-themes",
+				"ms-vscode.cmake-tools",
+				"matepek.vscode-catch2-test-adapter",
+				"twxs.cmake",
+				"vsls-contrib.codetour",
+				"ms-vsliveshare.vsliveshare",
+				"ms-vscode.makefile-tools",
+				"vscode-icons-team.vscode-icons"
+			]
+		}
+	}
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}

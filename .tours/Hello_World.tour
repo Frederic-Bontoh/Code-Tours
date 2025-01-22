@@ -1,0 +1,54 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Hello, World!",
+  "steps": [
+    {
+      "title": "Welcome to Programming!",
+      "description": "Welcome to your first C++ program! This program simply prints out \"Hello, world!\".",
+      "line": 0
+    },
+    {
+      "file": "HelloWorld/hello.cpp",
+      "description": "The first part of a C++ program is the include directives. This tells the compiler which files to include when it is converting it from your written code to the executable file that will actually run. In this file, we have included the iostream library. The name comes from Input Output Stream, and it has the functions that allow us to read user input, and print output to the output stream. In this case, that is the terminal.",
+      "line": 1,
+      "contents": "#include <iostream>\n\nint main() {\n    // Prints Hello, World\n    std::cout << \"Hello, world!\\n\";\n\n    return 0;\n}",
+      "title": "Include directives"
+    },
+    {
+      "file": "HelloWorld/hello.cpp",
+      "description": "This is the main function. Every C++ program has to have 1, and only 1, main function. Other than being required to be named 'main', this function works the same as every other function that exists in C++. It is written in the format `return-type name(parameters)`, and then has an opening and closing {} to indicate what the scope of the function is. \n\nThe main function here has been kept simple. Later, you might see it listed as `int main(int argv, char *argc)`. The `int argv` and `char *argc` are function parameters. Parameters are variables that are required to be entered when you call the function. With the main function, this would be command line arguments that you enter when you run the program.",
+      "line": 3,
+      "contents": "#include <iostream>\n\nint main() {\n    // Prints Hello, World\n    std::cout << \"Hello, world!\\n\";\n\n    return 0;\n}",
+      "title": "The Main Function"
+    },
+    {
+      "file": "HelloWorld/hello.cpp",
+      "description": "This is a code comment. Code comments are incredibly important, as they provide allow you to provide context and details behind your coding decisions, so that other programmers, or even your future self, can better understand what your code does, and why you wrote it that way. C++ can be hard to read through and understand fully, even by experienced programmers. Providing clear, concise, detailed comments on your functions, or complicated algorithms, will provide a much needed boost for others and yourself in understanding what it is that the code does.",
+      "line": 4,
+      "contents": "#include <iostream>\n\nint main() {\n    // Prints Hello, World\n    std::cout << \"Hello, world!\\n\";\n\n    return 0;\n}",
+      "title": "Comments"
+    },
+    {
+      "file": "HelloWorld/hello.cpp",
+      "title": "Namespaces",
+      "description": "This line is what is handling the bulk of this program, and has a few different aspects that we need to cover! Starting with `std::`. This tells the compiler that we are using a function from the `std` namespace. There are hundreds of C++ libraries that have been written, and in C++ functions and variables cannot have the same name. In order to prevent a very complicated system of keeping track of what name is used for what function, the C++ maintainers came up with Namespaces. This allows you to declare your functions and variables in a namespace, then use the namespace identifier when using those functions somewhere else. In this case, the `cout` function is declared in the `std` namespace, so to use the function you would need to write it as `std::cout`.\n\nYou can also do a shortcut, by typing `using namespace std` at the top of the file, directly under your `#include` statements. This is generally considered bad practice though, as it can cause collisions if you include libraries that have the same function names. It is better to manually add the `std::` identifier to your function and variable calls.\n\n",
+      "line": 5,
+      "contents": "#include <iostream>\n\nint main() {\n    // Prints Hello, World\n    std::cout << \"Hello, world!\\n\";\n\n    return 0;\n}"
+    },
+    {
+      "file": "HelloWorld/hello.cpp",
+      "title": "Output",
+      "description": "The next portion of the line is the actual function we are calling, `cout`. This is telling the compiler to print to the output stream what comes next. With `cout`, you need to use the output redirection symbols, `<<` to indicate what information is going to the stream. After that is the actual text that we are outputting, `\"Hello, World!\"`. The `\"\"` indicate that the text is a character stream, and not variable names. You can also pass variables to the output stream, using the variable name. The next detail is the `\\n` that is part of the character stream. This is an escape character that tells the compiler it is going to a new line at the end of the statement.\n\nAnd finally, the `;`. In C++, every statement ends in a semicolon, but not every line ends in a semicolon. We'll get into the specifics of when it isn't used, but for now it is a good practice to put it at the end of every line you write to get into the habit of including it. If you leave it out, the compiler will not be happy.",
+      "line": 5,
+      "contents": "#include <iostream>\n\nint main() {\n    // Prints Hello, World\n    std::cout << \"Hello, world!\\n\";\n\n    return 0;\n}"
+    },
+    {
+      "file": "HelloWorld/hello.cpp",
+      "title": "Returning",
+      "description": "This statement is the `return` statement. This tells the compiler we have reached the end of the function and that it is time to return to what called the function. With the `main` function, this is usually the operating system, as that is where the function started. When you start writing your own functions, the `return` will send you to the function that called your function. In this statement, it is returning with a value of 0. The return function is formatted in `return value`, where the value has to be of the type that the function type included (`int main`).",
+      "line": 7,
+      "contents": "#include <iostream>\n\nint main() {\n    // Prints Hello, World\n    std::cout << \"Hello, world!\\n\";\n\n    return 0;\n}"
+    }
+  ],
+  "isPrimary": true
+}
