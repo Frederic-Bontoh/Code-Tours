@@ -1,0 +1,21 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Words Functions Exercise",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "This tour will cover the various features of the C++ Review Exercise program. In this program, the task was to accept a sentence from the user and then perform 3 different analysis tasks on the sentence. The tasks were to determine how many words were in the sentence, what the longest word in the sentence was, and which word had the most vowels."
+    },
+    {
+      "file": "Words/main.cpp",
+      "description": "We can start with the main.cpp file. In this file we have our main function. As discussed in previous tours, every C++ program **has** to have a main function. Our main function here is working to take in the user input, then call the various other functions we have defined to perform the proper analysis on them. We only have one include directive on the main.cpp file, including the words.h header file.",
+      "line": 1,
+      "title": "The Main file"
+    },
+    {
+      "file": "Words/words.h",
+      "description": "In the words.h file, the first thing we encounter are two statements that make up [Header Guards](https://www.learncpp.com/cpp-tutorial/header-guards/#:~:text=resolve%20this%20issue%3F-,Header%20guards,-The%20good%20news). In C++, we can only define a function one time. Trying to define a function a second time with the same name will cause the compiler to show an error. This can cause issues if we have multiple files that use the same headers as dependencies. To remedy this, we introduce a Header Guard. The `#ifndef WORDS_H_` checks if there has been a definition for the symbol `WORDS_H_`. If there hasn't been a definition, it will then define it, using `#define WORDS_H_`. This will prevent this header file from being loaded more than once, as it won't be loaded again after being defined.",
+      "line": 1
+    }
+  ]
+}
