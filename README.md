@@ -8,8 +8,6 @@ To start a Tour, press `Ctrl`+`Shift`+`P` on your keyboard, then type in CodeTou
 ### Hello World Code Tour
 Provides an overview of the structure of a C++ program.
 
-### Simple Pay Calculator
-Uses user input, calculating amount of pay based on entered hours and rate.
 
 ### Words Review Program
 Prompts the user to enter a sentence. Finds the number of words entered, longest word, and word with the most vowels.

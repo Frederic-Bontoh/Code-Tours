@@ -82,17 +82,170 @@
     {
       "file": "Words/words.cpp",
       "description": "The next function is our `findLongestWord` function. This is a little more complicated, and worth spending some time explaining more thoroughly. ",
-      "line": 7
+      "line": 7,
+      "title": "findLongestWord"
     },
     {
       "file": "Words/words.cpp",
       "description": "We start the function by [declaring and initializing two variables](https://www.learncpp.com/cpp-tutorial/variable-assignment-and-initialization/), `longest_length` and `longest_word`. For this we are using [List Initialization](<https://www.learncpp.com/cpp-tutorial/variable-assignment-and-initialization/#:~:text=via%20static_cast).-,List%2Dinitialization,-The%20modern%20way>), which is the preferred way to initialize variables.\n\nAs a quick breakdown, List Initialization is in the following format: `type name{value};`. Copy initialization is the previous preferred method for initializing a variable, which used the format: `type name = value;`. In the modern versions of C++ it is recommended to use List initialization. When you assign a value to a variable, after initialization, you assign it using the following format: `name = new_value;`. \n\nAs can be seen here, we are using the `std::size_t` type for `longest_length`, as the values returned by the `string` `length()` function are in the type `size_t`. For `longest_word`, we are defining it as a `std::string`, initializing it as an empty string.",
-      "line": 8
+      "line": 8,
+      "title": "findLongestWord Variables"
     },
     {
       "file": "Words/words.cpp",
       "description": "The next line in the function is a [`range for` loop](https://www.learncpp.com/cpp-tutorial/range-based-for-loops-for-each/). This for loop using the format: `for(element_declaration : array_object)`. This also brings up the `auto` keyword. This keyword is used to infer the type of the variable, based on what it is initialized with. In this case, we are iterating over the `sentence` variable, which is a vector of strings. So each `word` instance will be of type `std::string`, which `auto` is able to figure out on its own. It is recommended to use `auto` when possible, so anytime it is obvious what the inferred type is going to be, and to manually define the type in cases where it is ambiguous. This applies to our initialization of `longest_word`. Since it was initialized as `{\"\"}`, the `auto` keyword would take that to mean a `char array`, instead of a `std::string`. This would then be incompatible when working with the `word` variable later.",
-      "line": 10
+      "line": 10,
+      "title": "findLongestWord Range-For"
+    },
+    {
+      "file": "Words/words.cpp",
+      "description": "Inside the Range-For, we create a temporary variable that is holding the length of the word we are currently working with. \n\nWe use this variable so that we only have to call the length() function once for the word, then store it in the variable so we can use it multiple times.",
+      "line": 12,
+      "title": "Temporary Variable"
+    },
+    {
+      "file": "Words/words.cpp",
+      "description": "Next we check if the length of the word is greater than the longest_length we have recorded so far.",
+      "line": 13,
+      "title": "If"
+    },
+    {
+      "file": "Words/words.cpp",
+      "description": "If that is true, we set the longest_length to our new length, and define the longest_word as our current word.",
+      "selection": {
+        "start": {
+          "line": 15,
+          "character": 1
+        },
+        "end": {
+          "line": 16,
+          "character": 33
+        }
+      },
+      "title": "New Longest"
+    },
+    {
+      "file": "Words/words.cpp",
+      "description": "Once we have checked every word, we return whichever word is still in our `longest_word` variable.",
+      "line": 19,
+      "title": "Return Longest"
+    },
+    {
+      "file": "Words/words.cpp",
+      "description": "The next function counts how many vowels are in the word that is passed in.",
+      "line": 22,
+      "title": "countVowels"
+    },
+    {
+      "file": "Words/words.cpp",
+      "description": "We again use the `auto` keyword to define a variable to count for us.",
+      "line": 24,
+      "title": "counter"
+    },
+    {
+      "file": "Words/words.cpp",
+      "description": "We use another Range-For loop to iterate over every letter in the word.",
+      "line": 26,
+      "title": "Range-For over word"
+    },
+    {
+      "file": "Words/words.cpp",
+      "description": "Then we use a switch case to see if the letter matches a Vowel. For this we are defining each vowel character as a case. The switch will look at the value of the letter passed in, then proceed to the case that matches, if there is a match. Nothing happens if there is not a match.",
+      "line": 28,
+      "title": "switch-case"
+    },
+    {
+      "file": "Words/words.cpp",
+      "description": "We increase the counter by 1.",
+      "line": 39,
+      "title": "counter increase"
+    },
+    {
+      "file": "Words/words.cpp",
+      "description": "Then return the counter at the end of the function.",
+      "line": 42,
+      "title": "return counter"
+    },
+    {
+      "file": "Words/main.cpp",
+      "description": "Back in our main function, we define an empty string `input_word` and an empty `vector<string>` `sentence`.",
+      "selection": {
+        "start": {
+          "line": 4,
+          "character": 1
+        },
+        "end": {
+          "line": 5,
+          "character": 42
+        }
+      },
+      "title": "Empty variables"
+    },
+    {
+      "file": "Words/main.cpp",
+      "description": "We prompt the user to enter a sentence.",
+      "line": 7,
+      "title": "User Input"
+    },
+    {
+      "file": "Words/main.cpp",
+      "description": "We then use some complicated looking logic to see if the user has press the enter key. Basically, we are checking each iteration of a while loop to see if the next character on the input stream is a new line. If it is not, we take the contents of the input stream (which are all characters up to a space or enter) and push it to the back of the `vector<string>`.",
+      "selection": {
+        "start": {
+          "line": 9,
+          "character": 1
+        },
+        "end": {
+          "line": 12,
+          "character": 6
+        }
+      },
+      "title": "Processing input"
+    },
+    {
+      "file": "Words/main.cpp",
+      "description": "We then call the `countWords` and `findLongestWord` functions to get the data from the entered word.",
+      "selection": {
+        "start": {
+          "line": 14,
+          "character": 1
+        },
+        "end": {
+          "line": 15,
+          "character": 57
+        }
+      },
+      "title": "Data Variables"
+    },
+    {
+      "file": "Words/main.cpp",
+      "description": "Then we loop through each word in the sentence to count how many vowels are in the word, storing the word with the most vowels in `most_vowels_word`.",
+      "selection": {
+        "start": {
+          "line": 17,
+          "character": 1
+        },
+        "end": {
+          "line": 27,
+          "character": 6
+        }
+      },
+      "title": "Finding Vowels"
+    },
+    {
+      "file": "Words/main.cpp",
+      "description": "We then print our output, formatted to look nice.",
+      "selection": {
+        "start": {
+          "line": 29,
+          "character": 1
+        },
+        "end": {
+          "line": 31,
+          "character": 77
+        }
+      },
+      "title": "Printing Results"
     }
   ]
 }
